@@ -13,7 +13,7 @@ export class DailyTransactionChartComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartData: any[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // Group transactions by month and calculate monthly total for each type
@@ -21,28 +21,40 @@ export class DailyTransactionChartComponent implements OnInit {
 
     this.transactions.forEach((transaction: any) => {
       const date = new Date(transaction.transaction_date);
-      const monthYear = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+      const monthYear = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+      });
 
       if (!monthlyData[monthYear]) {
         monthlyData[monthYear] = {};
       }
 
       if (!monthlyData[monthYear][transaction.transaction_type]) {
-        monthlyData[monthYear][transaction.transaction_type] = transaction.amount;
+        monthlyData[monthYear][transaction.transaction_type] =
+          transaction.amount;
       } else {
-        monthlyData[monthYear][transaction.transaction_type] += transaction.amount;
+        monthlyData[monthYear][transaction.transaction_type] +=
+          transaction.amount;
       }
     });
 
     // Extract months and corresponding total amounts for each type
     const sortedMonthYears = Object.keys(monthlyData).sort();
-    const transactionTypes = [...new Set(this.transactions.map((transaction: any) => transaction.transaction_type))];
+    const transactionTypes = [
+      ...new Set(
+        this.transactions.map(
+          (transaction: any) => transaction.transaction_type
+        )
+      ),
+    ];
 
     this.barChartLabels = sortedMonthYears;
     this.barChartData = transactionTypes.map((type) => ({
-      data: sortedMonthYears.map((monthYear) => monthlyData[monthYear][type as number] || 0),
+      data: sortedMonthYears.map(
+        (monthYear) => monthlyData[monthYear][type as number] || 0
+      ),
       label: type,
     }));
   }
-
 }
