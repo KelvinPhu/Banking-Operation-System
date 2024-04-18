@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-BankingportalApplication<bankingportal>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.webapp.bankingportal.BankingportalApplication",
+      "projectName": "bankingportal",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

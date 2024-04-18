@@ -1,0 +1,39 @@
+server:
+  port: 8180
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://THIEN-PHU:1433;databaseName=ProjectBankingApplication;encrypt=false
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: 123456789Thien_Phu
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+    show-sql: true
+
+  main:
+    allow-circular-references: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: example@gmail.com
+    password: x88p99qxzmdvgmdu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# JWT Configuration
+jwt:
+  secret: your-secret-key
+  expiration: 86400000 # Token expiration time in milliseconds (e.g., 24 hours)
+  header: Authorization
+  prefix: Bearer

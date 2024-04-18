@@ -1,0 +1,23 @@
+.content-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow-y: hidden;
+
+}
+
+.left-pannel {
+    flex: 0 0 auto;
+    position: sticky;
+    left: 0;
+    top: 0;
+
+}
+
+.right-pannel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: scroll;
+}
