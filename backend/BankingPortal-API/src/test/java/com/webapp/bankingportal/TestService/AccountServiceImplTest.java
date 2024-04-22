@@ -40,6 +40,21 @@ public class AccountServiceImplTest {
     }
 
     @Test
+    void testCreateAccount(){
+        User user = new User();
+        Account account = new Account();
+        account.setAccountNumber("123456");
+        account.setBalance(0.0);
+        when(accountRepository.save(any())).thenReturn(account);
+
+        Account createdAccount = accountServiceImpl.createAccount(user);
+
+        verify(accountRepository, times(1)).save(any());
+        assertEquals("123456", createdAccount.getAccountNumber());
+        assertEquals(0.0, createdAccount.getBalance());
+    }
+
+    @Test
     void testCreatePIN_accountNotFound() {
         when(accountRepository.findByAccountNumber(anyString())).thenReturn(null);
 
