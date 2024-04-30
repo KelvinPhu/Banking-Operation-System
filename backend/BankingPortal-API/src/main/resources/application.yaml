@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlserver://projectbankingapp.cbwmca88oqto.ap-southeast-2.rds.amazonaws.com:1433;databaseName=projectbankingapplication;encrypt=false
+    url: jdbc:sqlserver://THIEN-PHU:1433;databaseName=projectbankingapplication;encrypt=false
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: admin
-    password: password
+    username: sa
+    password: 123456789Thien_Phu
 
   jpa:
     hibernate:
