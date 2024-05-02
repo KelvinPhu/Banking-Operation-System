@@ -33,7 +33,4 @@ public class DashboardController {
         AccountResponse accountResponse = dashboardService.getAccountDetails(accountNumber);
         return ResponseEntity.ok(accountResponse);
     }
-    
-    
-   
 }

@@ -150,5 +150,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+	  <repository>
+	    <id>my-repository</id>
+	    <url>http://example.com/repository</url>
+	  </repository>
+	</distributionManagement>
 
 </project>
