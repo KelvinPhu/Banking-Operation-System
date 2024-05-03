@@ -1,7 +1,6 @@
 package com.webapp.bankingportal.config;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
