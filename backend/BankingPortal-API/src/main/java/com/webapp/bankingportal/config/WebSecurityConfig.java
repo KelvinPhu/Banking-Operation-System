@@ -67,18 +67,17 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
-
 		http.csrf().disable().authorizeHttpRequests()
-		.requestMatchers("/api/users/register").permitAll()
-				.requestMatchers("/api/users/login").permitAll()
-				.requestMatchers("/api/users/generate-otp").permitAll()
-				.requestMatchers("/api/users/verify-otp").permitAll()
-				.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				 .requestMatchers("swagger-ui.html","/v3/api-docs/**","/swagger-ui/**","/actuator/**").permitAll()
-				.anyRequest().authenticated().and().exceptionHandling()
-				.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+			.requestMatchers("/api/users/register").permitAll()
+			.requestMatchers("/api/users/login").permitAll()
+			.requestMatchers("/api/users/generate-otp").permitAll()
+			.requestMatchers("/api/users/verify-otp").permitAll()
+			.requestMatchers("/api/public").permitAll() // Thêm dòng này
+			.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+			.requestMatchers("swagger-ui.html","/v3/api-docs/**","/swagger-ui/**","/actuator/**").permitAll()
+			.anyRequest().permitAll().and().exceptionHandling()
+			.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
